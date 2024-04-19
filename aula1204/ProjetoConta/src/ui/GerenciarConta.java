@@ -9,6 +9,16 @@ import java.util.List;
 
 public class GerenciarConta {
     List<Conta>lista = new ArrayList<>();
+
+    private double totalSaldos;
+
+    public double getTotalSaldos() {
+        for(Conta conta : lista){
+            totalSaldos+= conta.getSaldo();
+        }
+        return totalSaldos;
+    }
+
     public static void main(String[] args) {
         Corrente corrente = new Corrente();
         corrente.setNumero(1);
@@ -27,12 +37,14 @@ public class GerenciarConta {
         gc.lista.add(corrente);
         gc.lista.add(poupanca);
 
-        double saldo = 0;
-        for (Conta conta : gc.lista){
-            saldo += conta.getSaldo();
+
+        System.out.println("Saldo de todas as contas: ");
+        System.out.println(gc.getTotalSaldos());
+
+        for(Conta conta : gc.lista){
+            System.out.println(conta);
+            System.out.println("=.=.=.=.=.=.=.=.=.=.=.=.");
         }
-        System.out.println("Saldo das duas contas: ");
-        System.out.println(saldo);
 
     }
 }
