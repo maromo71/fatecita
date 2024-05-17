@@ -1,3 +1,9 @@
+package view;
+
+
+import model.Aluno;
+import model.MesMatricula;
+
 public class AlunoTeste {
     public static void main(String[] args) {
         Aluno aluno1, aluno2, aluno3;
@@ -10,6 +16,8 @@ public class AlunoTeste {
                 "DSM",
                 "maria",
                 "234");
+        aluno3.setMesMatricula(MesMatricula.setembro);
+        
 
     }
 }

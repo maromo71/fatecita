@@ -1,3 +1,5 @@
+package model;
+
 public class Aluno {
     private int ra;
     private String nome;
@@ -6,6 +8,7 @@ public class Aluno {
     private String turma;
     private String login;
     private String senha;
+    private MesMatricula mesMatricula;
 
     //método construtor padrão.
     public Aluno(){
@@ -81,5 +84,13 @@ public class Aluno {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public MesMatricula getMesMatricula() {
+        return mesMatricula;
+    }
+
+    public void setMesMatricula(MesMatricula mesMatricula) {
+        this.mesMatricula = mesMatricula;
     }
 }
