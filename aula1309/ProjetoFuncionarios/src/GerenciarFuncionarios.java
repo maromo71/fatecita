@@ -48,6 +48,12 @@ public class GerenciarFuncionarios {
                 case 3:
                     gerenciar.execBonificar();
                     break;
+                case 4:
+                    gerenciar.execListarTodos();
+                    break;
+                case 5:
+                    gerenciar.execInativar();
+                    break;
                 case 9:
                     System.out.println("Fim do Programa");
                     break;
@@ -55,6 +61,28 @@ public class GerenciarFuncionarios {
                     System.out.println("Opção inválida");
             }
         }while(opcao !=9);
+    }
+
+    private void execInativar() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o RG do funcionário a inativar: ");
+        String rgProc = scanner.nextLine();
+        for(Funcionario funcionario : funcionarios){
+            if(funcionario.getRg().equalsIgnoreCase(rgProc)){
+                funcionario.setAtivo(false); //inativar o funcioário
+                System.out.println("Funcionário inatvidao com sucesso");
+                return;
+            }
+        }
+        System.out.println("Funcionário não encontrado");
+    }
+
+    private void execListarTodos() {
+        //Listar todos o funcionários
+        //Varrer a lista e imprimir todos
+        for(Funcionario funcionario : funcionarios){
+            System.out.println(funcionario.listar());
+        }
     }
 
     public void execBonificar(){
@@ -69,6 +97,7 @@ public class GerenciarFuncionarios {
                 aumento = Double.parseDouble(scanner.nextLine());
                 funcionario.bonificar(aumento);
                 System.out.println("Funcionário Bonificado com sucesso");
+                return;
             }
         }
         System.out.println("Funcionário não encontrado");
