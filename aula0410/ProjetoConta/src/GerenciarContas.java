@@ -19,6 +19,8 @@ public class GerenciarContas {
                 2,
                 "Maria",
                 21);
+        conta2.depositar(1000);
+        conta2.sacar(50);
         //depositar na conta1 5000.0 e na conta2 1000
         if(conta1.depositar(1500)){
             System.out.println("Depósito efetuado com sucesso!");

@@ -14,6 +14,7 @@ public abstract class Conta {
     public boolean sacar(double valor) {
         if (this.saldo >= valor) {
             this.saldo -= valor;
+            cobrarTarifa();
             return true;
         }
         return false;
@@ -57,4 +58,6 @@ public abstract class Conta {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
+
+    abstract void cobrarTarifa();
 }

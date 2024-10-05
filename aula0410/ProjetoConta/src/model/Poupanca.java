@@ -21,4 +21,9 @@ public class Poupanca extends Conta{
         return super.toString() +
                 "Dia Aniversario: " + diaAniversario;
     }
+
+    @Override
+    void cobrarTarifa() {
+        setSaldo(getSaldo() - 0.50);
+    }
 }

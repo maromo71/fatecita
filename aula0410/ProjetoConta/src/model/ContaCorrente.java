@@ -12,6 +12,7 @@ public class ContaCorrente extends Conta {
     public boolean sacar(double valor) {
         if (valor <= (getSaldo() + limiteEspecial)){
             setSaldo(getSaldo() - valor);
+            cobrarTarifa();
             return true;
         }
         return false;
@@ -29,5 +30,10 @@ public class ContaCorrente extends Conta {
     public String toString() {
         return super.toString()+
                 "Limite Especial: " + limiteEspecial;
+    }
+
+    @Override
+    void cobrarTarifa() {
+        setSaldo(getSaldo() -1.0);
     }
 }
