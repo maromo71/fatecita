@@ -4,8 +4,10 @@ import model.Caixa;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class CaixaView extends JFrame {
+public class CaixaView extends JFrame implements ActionListener {
     private Dimension dLabel, dTextField, dButton, dTextArea, dFrame;
     private Label lblValor, lblSaldo;
     private TextField txtValor, txtSaldo;
@@ -14,18 +16,18 @@ public class CaixaView extends JFrame {
 
     //método contrutor da janela
     public CaixaView(){
-        dFrame = new Dimension(350, 400);
-        dLabel = new Dimension(40, 20);
-        dTextField = new Dimension(150, 20);
-        dButton = new Dimension(95, 20);
-        dTextArea = new Dimension(300, 140);
-        this.setSize(dFrame);
-        this.setTitle("Controle de Caixa");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLayout(null);//definir na maos as posicoes
-        this.setLocationRelativeTo(null); //cetralizar a janela
-        this.setResizable(false); //nega o redimensionamento
+        //definir tamanho dos componentes
+        setSizeComponents();
+
+        //Aparenciar da janela
+        setWindowAppearance();
+
         //adicionar componentes
+        addComponents();
+
+    }
+
+    private void addComponents() {
         lblValor = new Label("Valor: ");
         lblValor.setSize(dLabel);
         lblValor.setLocation(25,50);
@@ -64,12 +66,40 @@ public class CaixaView extends JFrame {
         cmdSair = new Button("Sair");
         cmdSair.setSize(dButton);
         cmdSair.setLocation(225,185);
+        cmdSair.addActionListener(this);
         this.add(cmdSair);
 
         txtMsg = new TextArea(null);
         txtMsg.setSize(dTextArea);
         txtMsg.setLocation(25,220);
         this.add(txtMsg);
+    }
 
+    private void setWindowAppearance() {
+        this.setSize(dFrame);
+        this.setTitle("Controle de Caixa");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(null);//definir na maos as posicoes
+        this.setLocationRelativeTo(null); //cetralizar a janela
+        this.setResizable(false); //nega o redimensionamento
+    }
+
+    private void setSizeComponents() {
+        dFrame = new Dimension(350, 400);
+        dLabel = new Dimension(40, 20);
+        dTextField = new Dimension(150, 20);
+        dButton = new Dimension(95, 20);
+        dTextArea = new Dimension(300, 140);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==cmdSair){
+            //Sair do programa, com mensagem para o usuario
+            JOptionPane.showMessageDialog(null,
+                    "Sair do programa com segurança");
+            //Saida
+            System.exit(0);
+        }
     }
 }
