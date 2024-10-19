@@ -13,6 +13,7 @@ public class CaixaView extends JFrame implements ActionListener {
     private TextField txtValor, txtSaldo;
     private Button cmdEntrada, cmdRetirada, cmdConsulta, cmdSair;
     private TextArea txtMsg;
+    private Caixa caixa = new Caixa();
 
     //método contrutor da janela
     public CaixaView(){
@@ -51,16 +52,19 @@ public class CaixaView extends JFrame implements ActionListener {
         cmdEntrada = new Button("Entrada");
         cmdEntrada.setSize(dButton);
         cmdEntrada.setLocation(25,150);
+        cmdEntrada.addActionListener(this);
         this.add(cmdEntrada);
 
         cmdConsulta = new Button("Consulta");
         cmdConsulta.setSize(dButton);
         cmdConsulta.setLocation(25,185);
+        cmdConsulta.addActionListener(this);
         this.add(cmdConsulta);
 
         cmdRetirada = new Button("Retirada");
         cmdRetirada.setSize(dButton);
         cmdRetirada.setLocation(225,150);
+        cmdRetirada.addActionListener(this);
         this.add(cmdRetirada);
 
         cmdSair = new Button("Sair");
@@ -100,6 +104,27 @@ public class CaixaView extends JFrame implements ActionListener {
                     "Sair do programa com segurança");
             //Saida
             System.exit(0);
+        }
+        if(e.getSource()==cmdConsulta){
+            double saldo  = caixa.getSaldo();
+            txtSaldo.setText(String.format("%.2f", saldo));
+            txtMsg.append("Saldo consultado \n");
+            return;
+        }
+        if(e.getSource()==cmdEntrada){
+            double valor = Double.parseDouble(txtValor.getText());
+            String resultado = caixa.depositar(valor);
+            txtMsg.append(resultado + "\n");
+            txtValor.setText(null);
+            txtValor.requestFocus();
+            return;
+        }
+        if(e.getSource()==cmdRetirada){
+            double valor = Double.parseDouble(txtValor.getText());
+            String resultado = caixa.sacar(valor);
+            txtMsg.append(resultado + "\n");
+            txtValor.setText(null);
+            txtValor.requestFocus();
         }
     }
 }
