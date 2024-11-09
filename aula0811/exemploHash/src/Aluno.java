@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Aluno {
+public class Aluno implements Comparable<Aluno> {
     private int matricula;
     private String nomeCompleto;
 
@@ -40,5 +40,10 @@ public class Aluno {
     public int hashCode() {
         //logica das caixas (numero caraceteres do nome da pessoa)
         return nomeCompleto.length();
+    }
+
+    @Override
+    public int compareTo(Aluno o) {
+        return Integer.compare(matricula, o.matricula);
     }
 }

@@ -1,8 +1,8 @@
 public class Exemplo {
     public static void main(String[] args) {
-        Aluno aluno1 = new Aluno(11, "Maria");
-        Aluno aluno2 = new Aluno(22, "Pedro");
-        Aluno aluno3 = new Aluno(33, "Antonio");
+        Aluno aluno1 = new Aluno(56, "Maria");
+        Aluno aluno2 = new Aluno(11, "Pedro");
+        Aluno aluno3 = new Aluno(99, "Antonio");
 
         System.out.println("Hashcode do aluno1 = " + aluno1.hashCode());
         System.out.println("Hashcode do aluno2 = " + aluno2.hashCode());
@@ -16,5 +16,7 @@ public class Exemplo {
         }else{
             System.out.println("Não trata-se do mesmo aluno");
         }
+
+
     }
 }
