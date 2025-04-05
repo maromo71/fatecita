@@ -37,7 +37,7 @@ public class Gerenciar {
         }while(opcao !=9);
         System.out.println("Acabou o programa!");
     }
-    public void execCadastrar(){
+    public static void execCadastrar(){
         Conta conta  = new Conta();
         System.out.println("Digite o numero da conta: ");
         conta.setNumero(Integer.parseInt(input.nextLine()));
