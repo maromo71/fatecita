@@ -5,9 +5,5 @@ public class Jogo {
         baralho.embaralhar();
         System.out.println();
         baralho.mostrarBaralho();
-        Carta carta1 = baralho.cartas.get(0);
-        Carta carta2 = baralho.cartas.get(1);
-        Carta cMaior = baralho.maiorCarta(carta1, carta2);
-        System.out.println("Maior carta das duas: " + cMaior);
     }
 }

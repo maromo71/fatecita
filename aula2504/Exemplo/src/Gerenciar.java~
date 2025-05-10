@@ -1,0 +1,8 @@
+import javax.swing.*;
+
+public class Gerenciar {
+    public static void main(String[] args) {
+        JFrame tela = new JFrame();
+        tela.setContentPane(new Tela().);
+    }
+}

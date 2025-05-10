@@ -1,0 +1,22 @@
+import javax.swing.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class Tela {
+    private JButton mensagemButton;
+    private JLabel labelMensagem;
+    private JPanel painelTela;
+
+//    public JPanel getPainelTela() {
+        return painelTela;
+    }
+
+    public Tela() {
+        mensagemButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                labelMensagem.setText("Ola pessoal da Fatec Itapira");
+            }
+        });
+    }
+}

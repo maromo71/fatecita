@@ -1,4 +1,6 @@
-package PACKAGE_NAME;
-
 public enum Naipe {
+    paus,
+    copas,
+    espada,
+    ouro
 }
