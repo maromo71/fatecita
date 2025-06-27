@@ -7,7 +7,7 @@ public class Secretaria extends Funcionario implements Logavel {
     public void efetuarLogin() {
         //Login da secretaria
         System.out.println("Secretaria logou");
-        GerenciarEmpresa.logados.add(this);
+
     }
 
     @Override

@@ -4,7 +4,7 @@ public class Gerente extends Funcionario implements Logavel{
     @Override
     public void efetuarLogin() {
         System.out.println("Gerente logou");
-        GerenciarEmpresa.logados.add(this);
+
     }
 
     @Override

@@ -15,9 +15,9 @@ public class GerenciarEmpresa {
         //operador.efetuarLogin();
         //fornecedor.efetuarLogin();
         //Os outros tres fazem login
-        secretaria.efetuarLogin();
-        gerente.efetuarLogin();
-        cliente.efetuarLogin();
+        secretaria.loginComRegistro();
+        gerente.loginComRegistro();
+        cliente.loginComRegistro();
         imprimirLogados(); //Antes da Secretaria sair
         //Secretaria efetua logoff
         secretaria.efetuarLogoff();
